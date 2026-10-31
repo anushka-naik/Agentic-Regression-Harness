@@ -1,0 +1,19 @@
+# Baseline actor: Qwen3 4B (Q4_K_M) through local Ollama, thinking disabled.
+schema_version: 1
+agent_id: baseline
+provider: ollama
+model: qwen3:4b-q4_K_M
+prompt_path: prompts/support_v1.txt
+tool_implementation: retail_v1
+think: false
+temperature: 0
+num_ctx: 8192
+num_predict: 768
+max_model_calls_per_turn: 8
+max_model_calls_per_case: 16
+max_tool_attempts_per_turn: 6
+max_user_turns: 3
+request_timeout_seconds: 120
+case_timeout_seconds: 600
+concurrency: 1
+format_repair_attempts_per_turn: 1
