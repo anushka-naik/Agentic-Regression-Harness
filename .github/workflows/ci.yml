@@ -1,0 +1,90 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    name: offline tests, dataset, mutations
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: agentcheck
+          POSTGRES_PASSWORD: agentcheck_local_only
+          POSTGRES_DB: agentcheck
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U agentcheck" --health-interval 5s
+          --health-timeout 3s --health-retries 20
+    env:
+      DATABASE_URL: postgresql+psycopg://agentcheck:agentcheck_local_only@127.0.0.1:5432/agentcheck
+      TEST_DATABASE_URL: postgresql+psycopg://agentcheck:agentcheck_local_only@127.0.0.1:5432/agentcheck_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - name: Install (frozen lockfile)
+        run: uv sync --dev --frozen
+      - name: Create test database and migrate
+        run: |
+          PGPASSWORD=agentcheck_local_only psql -h 127.0.0.1 -U agentcheck -d agentcheck \
+            -c "CREATE DATABASE agentcheck_test"
+          uv run alembic upgrade head
+      - name: Ruff
+        run: uv run ruff check src tests scripts
+      - name: mypy
+        run: uv run mypy
+      - name: Dataset validation
+        run: uv run agentcheck dataset validate data/retail_v1
+      - name: Dataset is reproducible
+        run: |
+          uv run python scripts/generate_dataset.py --seed 42
+          git diff --exit-code data/retail_v1
+      - name: Tests (no model, no network)
+        run: uv run pytest -m "not live" --junitxml=artifacts/pytest-junit.xml
+      - name: Controlled mutation suite
+        run: uv run agentcheck mutation-check --all --output artifacts/mutations
+      - name: Fixture regression demo
+        run: uv run agentcheck demo --mode fixture --output artifacts/demo
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## AgentCheck (fixture mode, no LLM)"
+            test -f artifacts/mutations/mutation_report.md && sed -n '1,20p' artifacts/mutations/mutation_report.md
+            echo
+            test -f artifacts/demo/01_regression/report.md && sed -n '1,12p' artifacts/demo/01_regression/report.md
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agentcheck-offline
+          path: artifacts/
+          retention-days: 14
+
+  regression-demo:
+    # Manual only: intentionally exits 1 to show what a red regression check looks like.
+    name: intentional red check (manual)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --dev --frozen
+      - run: >
+          uv run agentcheck experiment --no-db --mode fixture --suite dev
+          --baseline configs/agents/baseline.yaml --candidate configs/agents/baseline.yaml
+          --mutation cutoff_exclusive --output artifacts/red

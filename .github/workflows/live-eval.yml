@@ -1,0 +1,47 @@
+name: live-eval
+
+# Genuine local-model evaluation on a TRUSTED self-hosted runner that already has
+# Ollama and the model installed. Manual trigger only: never runs on pull-request
+# code. Register a runner with the custom label `agentcheck-ollama`.
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: smoke | dev | validation | heldout
+        default: smoke
+      repeats:
+        description: repeats (seeds 42, 43, 44)
+        default: "1"
+      candidate:
+        description: candidate config
+        default: configs/agents/candidate.yaml
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    runs-on: [self-hosted, agentcheck-ollama]
+    timeout-minutes: 360
+    env:
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --dev --frozen
+      - name: Doctor
+        run: uv run agentcheck doctor --model qwen3:4b-q4_K_M
+      - name: Experiment
+        run: >
+          uv run agentcheck experiment --no-db
+          --baseline configs/agents/baseline.yaml --candidate ${{ inputs.candidate }}
+          --suite ${{ inputs.suite }} --repeats ${{ inputs.repeats }}
+          --output artifacts/live
+      - name: Upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agentcheck-live
+          path: artifacts/live

@@ -1,0 +1,37 @@
+name: Evaluator bug
+description: A check, gate or report produced a wrong result
+labels: ["evaluator-bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Evaluator bugs are reproducible from artifacts. Please attach the run export so we can replay it.
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Evaluation mode
+      options: [fixture, live_model, replay]
+    validations: { required: true }
+  - type: input
+    id: check
+    attributes:
+      label: Check or gate rule
+      placeholder: evidence_valid
+    validations: { required: true }
+  - type: input
+    id: case
+    attributes:
+      label: Case ID and repeat
+      placeholder: multi_turn_correction_dev_001_a, repeat 1
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+      description: What should the check have concluded, and why (cite the policy or case file)?
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: "Command, `agentcheck replay <run.json>` output, dataset content hash, git commit."
+      render: shell
+    validations: { required: true }
