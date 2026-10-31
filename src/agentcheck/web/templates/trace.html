@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ a.case_id }} · AgentCheck{% endblock %}
+{% block content %}
+{% set failed = a.checks|selectattr('status', 'equalto', 'fail')|list %}
+<h1 class="mono" style="font-size:18px">{{ a.case_id }}</h1>
+<p class="sub">repeat {{ a.repeat_index }} · attempt {{ a.attempt_index }} · seed {{ a.seed }} · <span class="badge {{ a.status }}">{{ a.status }}</span> · run <a class="mono" href="/runs/{{ a.run_id }}">{{ a.run_id[:8] }}</a></p>
+{% if a.evaluation_mode == 'fixture' %}<div class="banner fixture"><strong>FIXTURE MODE</strong>: scripted reference policy. No language model was run.</div>
+{% elif a.evaluation_mode == 'live_model' %}<div class="banner"><strong>LIVE MODEL</strong>: genuine local inference; this trace is exactly what the model saw and did.</div>{% endif %}
+
+{% if failed %}
+<div class="failbox">
+  <strong>{{ failed|length }} check{{ 's' if failed|length > 1 }} failed</strong>
+  <ul>{% for c in failed %}<li><span class="mono">{{ c.code }}</span>{% if c.severity == 'critical' %} <span class="badge fail">critical</span>{% endif %}: {{ c.evidence.message }}</li>{% endfor %}</ul>
+</div>
+{% endif %}
+
+<div class="split">
+<section>
+<h2>Conversation and tool trace</h2>
+<p class="sub">Highlighted observations are the ones the final answer cites as evidence.</p>
+<ul class="timeline">
+{% for e in a.events if e.event_type not in ('check_result', 'model_request', 'case_started') %}
+<li class="{{ e.event_type }}{% if e.event_id in cited %} cited{% endif %}">
+  <span class="eid">{{ e.event_id }}</span> <span class="etype">{{ e.event_type }} · {{ '%.0f'|format(e.elapsed_ms) }} ms</span>
+  {% if e.event_type == 'user_message' %}<p class="msg"><strong>User:</strong> {{ e.payload.text }}</p>
+  {% elif e.event_type == 'tool_attempt' %}<p class="msg mono">→ {{ e.payload.tool_name }}({{ e.payload.arguments|short(160) }}){% if e.payload.mutation %} <span class="badge fail">injected by {{ e.payload.mutation|join(',') }}</span>{% endif %}</p>
+  {% elif e.event_type in ('tool_result', 'tool_error', 'tool_rejected') %}<pre>{{ e.payload.result|pretty }}</pre>{% if e.payload.injected_fault %}<span class="badge needs_review">planned fault (scenario, not infrastructure)</span>{% endif %}
+  {% elif e.event_type == 'assistant_final' %}<p class="msg"><strong>Assistant:</strong> {{ e.payload.response.message }}</p>{% if e.payload.mutation %}<span class="badge fail">rewritten by {{ e.payload.mutation|join(',') }}</span>{% endif %}
+  <details><summary>structured answer</summary><pre>{{ e.payload.response|pretty }}</pre></details>
+  {% elif e.event_type == 'protocol_error' %}<p class="msg">Malformed action: {{ e.payload.error }}</p><pre>{{ e.payload.raw }}</pre>
+  {% elif e.event_type == 'model_response' %}<p class="msg etype">{{ e.payload.content|short(140) }}</p>
+  {% elif e.event_type == 'case_finished' %}<p class="msg">{{ e.payload.status }}{% if e.payload.termination_reason %} · {{ e.payload.termination_reason }}{% endif %}{% if e.payload.dialogue_failure %} · {{ e.payload.dialogue_failure }}{% endif %}</p>{% endif %}
+</li>
+{% endfor %}
+</ul>
+</section>
+
+<section>
+<h2>Checks</h2>
+<table class="checks">
+<colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
+<tr><th>Check</th><th>Expected</th><th>Actual</th></tr>
+{% for c in failed %}
+<tr class="row-fail"><td><span class="mono">{{ c.code }}</span><br><span class="badge fail">fail</span></td><td class="mono">{{ c.expected|short(180) }}</td><td class="mono">{{ c.actual|short(180) }}</td></tr>
+{% endfor %}
+{% for c in a.checks if c.status != 'fail' %}
+<tr><td><span class="mono">{{ c.code }}</span><br><span class="badge {{ c.status }}">{{ c.status }}</span></td><td class="mono dim">{{ c.expected|short(90) }}</td><td class="mono dim">{{ c.actual|short(90) }}</td></tr>
+{% endfor %}
+</table>
+{% if a.judge %}<h2>Advisory review</h2>
+{% for j in a.judge %}<p><span class="badge {{ j.verdict }}">{{ j.verdict }}</span> {{ j.payload.explanation }} <span class="etype">human review: {{ j.human_review_status }}</span></p>{% endfor %}{% endif %}
+</section>
+</div>
+
+<details style="margin-top:24px"><summary>All raw events (JSON)</summary><pre>{{ a.events|pretty }}</pre></details>
+{% endblock %}

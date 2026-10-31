@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Run {{ run.id|string|truncate(8, True, '') }} · AgentCheck{% endblock %}
+{% block content %}
+{% set m = run.manifest %}
+<h1>Run <span class="mono">{{ run.id }}</span></h1>
+<p class="sub">{{ m.agent.config.agent_id }} · {{ m.agent.model.tag }} · suite {{ m.test.suite }} · <span class="badge {{ run.status }}">{{ run.status }}</span></p>
+{% if run.mode == 'fixture' %}<div class="banner fixture"><strong>FIXTURE MODE</strong>: scripted reference policy{% if m.agent.mutation_source %} with controlled mutation <code>{{ m.agent.mutation_source }}</code>{% endif %}. No language model was run.</div>
+{% elif run.mode == 'live_model' %}<div class="banner"><strong>LIVE MODEL</strong>: genuine local inference. Model digest <code>{{ m.agent.model.digest }}</code>.</div>{% endif %}
+
+<div class="grid">
+  <div class="stat"><div class="k">Planned trials</div><div class="v">{{ m.test.case_ids|length * m.test.repeats }}</div></div>
+  <div class="stat"><div class="k">Repeats / seeds</div><div class="v">{{ m.test.repeats }} <span class="etype">{{ m.test.seeds }}</span></div></div>
+  <div class="stat"><div class="k">Dataset</div><div class="v mono" style="font-size:14px">{{ m.test.dataset_sha256[:16] }}</div></div>
+  <div class="stat"><div class="k">Hardware</div><div class="v" style="font-size:14px">{{ m.environment.cpu }}</div></div>
+</div>
+
+<h2>Case attempts ({{ total }})</h2>
+<div class="scroll"><table>
+<tr><th>Case</th><th>Category</th><th class="num">Repeat</th><th class="num">Attempt</th><th>Status</th><th>Failed checks</th><th>Semantic</th><th class="num">Latency</th></tr>
+{% for c in cases %}
+<tr>
+  <td><a class="mono" href="/attempts/{{ c.attempt_id }}">{{ c.case_id }}</a></td>
+  <td>{{ c.category }}</td>
+  <td class="num">{{ c.repeat_index }}</td>
+  <td class="num">{{ c.attempt_index }}{% if c.rerun_reason %}<br><span class="etype">{{ c.rerun_reason }}</span>{% endif %}</td>
+  <td><span class="badge {{ c.status }}">{{ c.status }}</span></td>
+  <td class="mono">{{ c.failed_checks|join(', ') }}</td>
+  <td><span class="badge {{ c.semantic_review_status }}">{{ c.semantic_review_status }}</span></td>
+  <td class="num">{{ '%.0f ms'|format(c.latency_ms) if c.latency_ms is not none else '—' }}</td>
+</tr>
+{% endfor %}
+</table></div>
+<p class="pager">Page {{ page_no }} of {{ pages }}{% if page_no > 1 %} · <a href="?page={{ page_no - 1 }}">previous</a>{% endif %}{% if page_no < pages %} · <a href="?page={{ page_no + 1 }}">next</a>{% endif %}</p>
+<details><summary>Full manifest</summary><pre>{{ m|pretty }}</pre></details>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Comparison · AgentCheck{% endblock %}
+{% block content %}
+{% set c = report.comparison %}{% set g = report.gate %}
+<h1>Comparison <span class="badge {{ g.status }}">{{ g.status }}</span></h1>
+<p class="sub mono">{{ comp.id }} · <a href="/api/comparisons/{{ comp.id }}/report">download report.md</a></p>
+{% if c.candidate.evaluation_mode == 'fixture' %}<div class="banner fixture"><strong>FIXTURE MODE</strong>: scripted reference policy and controlled mutations. No language model was run.</div>{% endif %}
+{% if c.candidate.semantic_review.keys()|list == ['not_run'] %}<div class="banner">Semantic review not run: natural-language accuracy of messages was not evaluated. This gate covers structured outputs and traces.</div>{% endif %}
+
+<div class="grid">
+  <div class="stat"><div class="k">Baseline</div><div class="v">{{ c.baseline.passed }}/{{ c.baseline.planned }}</div><a class="mono" href="/runs/{{ comp.baseline_run_id }}">{{ comp.baseline_run_id|string|truncate(8, True, '') }}</a></div>
+  <div class="stat"><div class="k">Candidate</div><div class="v">{{ c.candidate.passed }}/{{ c.candidate.planned }}</div><a class="mono" href="/runs/{{ comp.candidate_run_id }}">{{ comp.candidate_run_id|string|truncate(8, True, '') }}</a></div>
+  <div class="stat"><div class="k">Δ pass rate</div><div class="v">{{ c.pass_rate_delta_pp if c.pass_rate_delta_pp is not none else 'N/A' }} pp</div></div>
+  <div class="stat"><div class="k">Regressions / improvements</div><div class="v">{{ c.counts.regressions }} / {{ c.counts.improvements }}</div></div>
+</div>
+
+<h2>Configuration changes</h2>
+{% set cb = baseline.manifest.agent.config %}{% set cc = candidate.manifest.agent.config %}
+<div class="scroll"><table><tr><th>Field</th><th>Baseline</th><th>Candidate</th></tr>
+{% set ns = namespace(any=false) %}
+{% for k in cb.keys()|sort %}{% if cb[k] != cc[k] and k != 'agent_id' %}{% set ns.any = true %}
+<tr><td class="mono">{{ k }}</td><td class="mono">{{ cb[k] }}</td><td class="mono">{{ cc[k] }}</td></tr>
+{% endif %}{% endfor %}
+{% if not ns.any %}<tr><td colspan="3">No behavioural difference (stability check).</td></tr>{% endif %}
+</table></div>
+
+<h2>Gate rules</h2>
+<div class="scroll"><table><tr><th>Rule</th><th>Result</th><th>Detail</th></tr>
+{% for r in g.rules %}<tr><td class="mono">{{ r.rule }}</td><td><span class="badge {{ r.outcome if r.outcome != 'ok' else 'pass' }}">{{ r.outcome }}</span></td><td>{{ r.detail }}</td></tr>{% endfor %}
+</table></div>
+
+<h2>By category</h2>
+<div class="scroll"><table><tr><th>Category</th><th class="num">Baseline</th><th class="num">Candidate</th></tr>
+{% for cat, b in c.baseline.per_category|dictsort %}{% set x = c.candidate.per_category.get(cat, {'passed': 0, 'total': 0}) %}
+<tr><td>{{ cat }}</td><td class="num">{{ b.passed }}/{{ b.total }}</td><td class="num">{% if x.passed < b.passed %}<span class="badge fail">{{ x.passed }}/{{ x.total }}</span>{% else %}{{ x.passed }}/{{ x.total }}{% endif %}</td></tr>
+{% endfor %}</table></div>
+
+<h2>Regressions</h2>
+{% for r in c.regressed_cases %}
+{% set key = r.case_id ~ ':' ~ (r.repeat or 1) %}
+<h3 class="mono" style="font-size:14px">{{ r.case_id }} <span class="badge fail">{{ r.baseline_passed }}/{{ r.repeats }} → {{ r.candidate_passed }}/{{ r.repeats }}</span></h3>
+<p>{% if attempts.get(key) %}<a href="/attempts/{{ attempts[key] }}">candidate trace</a>{% endif %}{% if baseline_attempts.get(key) %} · <a href="/attempts/{{ baseline_attempts[key] }}">baseline trace</a>{% endif %}</p>
+<div class="scroll"><table><tr><th>Check</th><th>Expected</th><th>Actual</th><th>Message</th></tr>
+{% for f in r.failed_checks %}<tr><td class="mono">{{ f.code }}</td><td class="mono">{{ f.expected|short(220) }}</td><td class="mono">{{ f.actual|short(220) }}</td><td>{{ f.message }}</td></tr>{% endfor %}
+</table></div>
+{% if r.first_divergence %}<details open><summary>First divergence at trace position {{ r.first_divergence.index }}</summary>
+<pre>baseline:  {{ r.first_divergence.baseline|pretty }}</pre><pre>candidate: {{ r.first_divergence.candidate|pretty }}</pre></details>{% endif %}
+{% else %}<p>None observed.</p>{% endfor %}
+{% endblock %}

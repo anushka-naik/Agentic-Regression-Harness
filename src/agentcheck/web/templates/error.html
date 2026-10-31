@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Database unavailable</h1>
+<p class="sub">{{ message }}</p>
+<pre>docker compose up -d db
+uv run alembic upgrade head
+uv run agentcheck import artifacts/demo/01_regression/runs/baseline</pre>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AgentCheck{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/">AgentCheck</a>
+  <nav><a href="/">Runs</a><a href="/review">Review queue</a><a href="/api/docs">API</a></nav>
+</div></header>
+<main class="wrap">{% block content %}{% endblock %}</main>
+<footer>AgentCheck {{ version }} · local, read-only · synthetic data only</footer>
+</body>
+</html>

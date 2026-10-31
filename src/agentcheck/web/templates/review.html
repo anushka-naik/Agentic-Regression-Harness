@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Review queue · AgentCheck{% endblock %}
+{% block content %}
+<h1>Review queue</h1>
+<p class="sub">Advisory judge failures and uncertain verdicts. The judge never overrides deterministic checks; these need a human. Label edits happen through <code>agentcheck labels-import</code>.</p>
+<div class="scroll"><table><tr><th>Case</th><th class="num">Repeat</th><th>Structured</th><th>Verdict</th><th>Failure types</th><th>Explanation</th><th>Human review</th></tr>
+{% for r in rows %}<tr><td><a class="mono" href="/attempts/{{ r.attempt_id }}">{{ r.case_id }}</a></td><td class="num">{{ r.repeat_index }}</td>
+<td><span class="badge {{ r.structured_status }}">{{ r.structured_status }}</span></td><td><span class="badge {{ r.verdict }}">{{ r.verdict }}</span></td>
+<td class="mono">{{ r.failure_types|join(', ') }}</td><td>{{ r.explanation }}</td><td>{{ r.human_review_status }}</td></tr>
+{% else %}<tr><td colspan="7">Nothing to review. Run <code>agentcheck judge --run &lt;run&gt;</code> to populate.</td></tr>{% endfor %}
+</table></div>
+{% endblock %}
