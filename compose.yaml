@@ -1,0 +1,22 @@
+# Local PostgreSQL for AgentCheck. Binds to localhost only.
+# Reset (DELETES all stored runs): docker compose down -v
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: agentcheck
+      POSTGRES_PASSWORD: agentcheck_local_only
+      POSTGRES_DB: agentcheck
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - agentcheck-pg:/var/lib/postgresql/data
+      - ./scripts/db-init.sql:/docker-entrypoint-initdb.d/10-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agentcheck -d agentcheck"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  agentcheck-pg:
