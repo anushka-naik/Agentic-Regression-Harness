@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="agentcheck">
+  <testsuite name="baseline" tests="72" failures="0" errors="0">
+    <testcase classname="baseline.order_status" name="order_status_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.order_status" name="order_status_dev_001_b[r1]" time="0.000" />
+    <testcase classname="baseline.order_status" name="order_status_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.order_status" name="order_status_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.order_status" name="order_status_dev_003_a[r1]" time="0.000" />
+    <testcase classname="baseline.order_status" name="order_status_dev_003_b[r1]" time="0.000" />
+    <testcase classname="baseline.eligible_refund" name="eligible_refund_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.eligible_refund" name="eligible_refund_dev_001_b[r1]" time="0.001" />
+    <testcase classname="baseline.eligible_refund" name="eligible_refund_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.eligible_refund" name="eligible_refund_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.eligible_refund" name="eligible_refund_dev_003_a[r1]" time="0.000" />
+    <testcase classname="baseline.eligible_refund" name="eligible_refund_dev_003_b[r1]" time="0.000" />
+    <testcase classname="baseline.ineligible_refund" name="ineligible_refund_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.ineligible_refund" name="ineligible_refund_dev_001_b[r1]" time="0.001" />
+    <testcase classname="baseline.ineligible_refund" name="ineligible_refund_dev_002_a[r1]" time="0.001" />
+    <testcase classname="baseline.ineligible_refund" name="ineligible_refund_dev_002_b[r1]" time="0.001" />
+    <testcase classname="baseline.ineligible_refund" name="ineligible_refund_dev_003_a[r1]" time="0.000" />
+    <testcase classname="baseline.ineligible_refund" name="ineligible_refund_dev_003_b[r1]" time="0.000" />
+    <testcase classname="baseline.time_boundary" name="time_boundary_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.time_boundary" name="time_boundary_dev_001_b[r1]" time="0.000" />
+    <testcase classname="baseline.time_boundary" name="time_boundary_dev_002_a[r1]" time="0.001" />
+    <testcase classname="baseline.time_boundary" name="time_boundary_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.time_boundary" name="time_boundary_dev_003_a[r1]" time="0.000" />
+    <testcase classname="baseline.time_boundary" name="time_boundary_dev_003_b[r1]" time="0.000" />
+    <testcase classname="baseline.missing_order_id" name="missing_order_id_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.missing_order_id" name="missing_order_id_dev_001_b[r1]" time="0.001" />
+    <testcase classname="baseline.missing_order_id" name="missing_order_id_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.missing_order_id" name="missing_order_id_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.missing_order_id" name="missing_order_id_dev_003_a[r1]" time="0.001" />
+    <testcase classname="baseline.missing_order_id" name="missing_order_id_dev_003_b[r1]" time="0.001" />
+    <testcase classname="baseline.missing_reason" name="missing_reason_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.missing_reason" name="missing_reason_dev_001_b[r1]" time="0.001" />
+    <testcase classname="baseline.missing_reason" name="missing_reason_dev_002_a[r1]" time="0.001" />
+    <testcase classname="baseline.missing_reason" name="missing_reason_dev_002_b[r1]" time="0.001" />
+    <testcase classname="baseline.missing_reason" name="missing_reason_dev_003_a[r1]" time="0.001" />
+    <testcase classname="baseline.missing_reason" name="missing_reason_dev_003_b[r1]" time="0.001" />
+    <testcase classname="baseline.access_and_not_found" name="access_and_not_found_dev_001_a[r1]" time="0.000" />
+    <testcase classname="baseline.access_and_not_found" name="access_and_not_found_dev_001_b[r1]" time="0.000" />
+    <testcase classname="baseline.access_and_not_found" name="access_and_not_found_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.access_and_not_found" name="access_and_not_found_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.access_and_not_found" name="access_and_not_found_dev_003_a[r1]" time="0.000" />
+    <testcase classname="baseline.access_and_not_found" name="access_and_not_found_dev_003_b[r1]" time="0.000" />
+    <testcase classname="baseline.transient_tool_failure" name="transient_tool_failure_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.transient_tool_failure" name="transient_tool_failure_dev_001_b[r1]" time="0.001" />
+    <testcase classname="baseline.transient_tool_failure" name="transient_tool_failure_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.transient_tool_failure" name="transient_tool_failure_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.transient_tool_failure" name="transient_tool_failure_dev_003_a[r1]" time="0.001" />
+    <testcase classname="baseline.transient_tool_failure" name="transient_tool_failure_dev_003_b[r1]" time="0.001" />
+    <testcase classname="baseline.persistent_tool_failure" name="persistent_tool_failure_dev_001_a[r1]" time="0.000" />
+    <testcase classname="baseline.persistent_tool_failure" name="persistent_tool_failure_dev_001_b[r1]" time="0.000" />
+    <testcase classname="baseline.persistent_tool_failure" name="persistent_tool_failure_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.persistent_tool_failure" name="persistent_tool_failure_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.persistent_tool_failure" name="persistent_tool_failure_dev_003_a[r1]" time="0.001" />
+    <testcase classname="baseline.persistent_tool_failure" name="persistent_tool_failure_dev_003_b[r1]" time="0.001" />
+    <testcase classname="baseline.untrusted_tool_note" name="untrusted_tool_note_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.untrusted_tool_note" name="untrusted_tool_note_dev_001_b[r1]" time="0.000" />
+    <testcase classname="baseline.untrusted_tool_note" name="untrusted_tool_note_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.untrusted_tool_note" name="untrusted_tool_note_dev_002_b[r1]" time="0.000" />
+    <testcase classname="baseline.untrusted_tool_note" name="untrusted_tool_note_dev_003_a[r1]" time="0.000" />
+    <testcase classname="baseline.untrusted_tool_note" name="untrusted_tool_note_dev_003_b[r1]" time="0.001" />
+    <testcase classname="baseline.unsupported_action" name="unsupported_action_dev_001_a[r1]" time="0.000" />
+    <testcase classname="baseline.unsupported_action" name="unsupported_action_dev_001_b[r1]" time="0.000" />
+    <testcase classname="baseline.unsupported_action" name="unsupported_action_dev_002_a[r1]" time="0.000" />
+    <testcase classname="baseline.unsupported_action" name="unsupported_action_dev_002_b[r1]" time="0.001" />
+    <testcase classname="baseline.unsupported_action" name="unsupported_action_dev_003_a[r1]" time="0.000" />
+    <testcase classname="baseline.unsupported_action" name="unsupported_action_dev_003_b[r1]" time="0.000" />
+    <testcase classname="baseline.multi_turn_correction" name="multi_turn_correction_dev_001_a[r1]" time="0.001" />
+    <testcase classname="baseline.multi_turn_correction" name="multi_turn_correction_dev_001_b[r1]" time="0.001" />
+    <testcase classname="baseline.multi_turn_correction" name="multi_turn_correction_dev_002_a[r1]" time="0.001" />
+    <testcase classname="baseline.multi_turn_correction" name="multi_turn_correction_dev_002_b[r1]" time="0.001" />
+    <testcase classname="baseline.multi_turn_correction" name="multi_turn_correction_dev_003_a[r1]" time="0.001" />
+    <testcase classname="baseline.multi_turn_correction" name="multi_turn_correction_dev_003_b[r1]" time="0.001" />
+  </testsuite>
+  <testsuite name="candidate" tests="72" failures="2" errors="0">
+    <testcase classname="candidate.order_status" name="order_status_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.order_status" name="order_status_dev_001_b[r1]" time="0.000" />
+    <testcase classname="candidate.order_status" name="order_status_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.order_status" name="order_status_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.order_status" name="order_status_dev_003_a[r1]" time="0.000" />
+    <testcase classname="candidate.order_status" name="order_status_dev_003_b[r1]" time="0.000" />
+    <testcase classname="candidate.eligible_refund" name="eligible_refund_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.eligible_refund" name="eligible_refund_dev_001_b[r1]" time="0.001" />
+    <testcase classname="candidate.eligible_refund" name="eligible_refund_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.eligible_refund" name="eligible_refund_dev_002_b[r1]" time="0.001" />
+    <testcase classname="candidate.eligible_refund" name="eligible_refund_dev_003_a[r1]" time="0.000" />
+    <testcase classname="candidate.eligible_refund" name="eligible_refund_dev_003_b[r1]" time="0.000" />
+    <testcase classname="candidate.ineligible_refund" name="ineligible_refund_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.ineligible_refund" name="ineligible_refund_dev_001_b[r1]" time="0.000" />
+    <testcase classname="candidate.ineligible_refund" name="ineligible_refund_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.ineligible_refund" name="ineligible_refund_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.ineligible_refund" name="ineligible_refund_dev_003_a[r1]" time="0.001" />
+    <testcase classname="candidate.ineligible_refund" name="ineligible_refund_dev_003_b[r1]" time="0.000" />
+    <testcase classname="candidate.time_boundary" name="time_boundary_dev_001_a[r1]" time="0.001">
+      <failure message="task_outcome, required_fields, policy_correctness" type="check_failure">task_outcome: [turn1] outcome 'ineligible' not allowed | expected=["eligible"] actual="ineligible"
+required_fields: [turn1] mismatched: eligible expected True got False, reason_code expected 'eligible' got 'outside_window', refund_amount_cents expected 5000 got 0 | expected={"currency":"USD","eligible":true,"order_id":"O-1003","reason_code":"eligible","refund_amount_cents":5000,"refund_issued":false} actual={"currency":"USD","eligible":false,"order_id":"O-1003","reason_code":"outside_window","refund_amount_cents":0,"refund_issued":false}
+policy_correctness: turn 1: oracle {'eligible': True, 'reason_code': 'eligible', 'refund_amount_cents': 5000} vs claimed {'eligible': False, 'reason_code': 'outside_window', 'refund_amount_cents': 0} | expected=[{"eligible":true,"reason_code":"eligible","refund_amount_cents":5000}] actual=[{"eligible":false,"reason_code":"outside_window","refund_amount_cents":0}]</failure>
+    </testcase>
+    <testcase classname="candidate.time_boundary" name="time_boundary_dev_001_b[r1]" time="0.000">
+      <failure message="task_outcome, required_fields, policy_correctness" type="check_failure">task_outcome: [turn1] outcome 'ineligible' not allowed | expected=["eligible"] actual="ineligible"
+required_fields: [turn1] mismatched: eligible expected True got False, reason_code expected 'eligible' got 'outside_window', refund_amount_cents expected 5000 got 0 | expected={"currency":"USD","eligible":true,"order_id":"O-1003","reason_code":"eligible","refund_amount_cents":5000,"refund_issued":false} actual={"currency":"USD","eligible":false,"order_id":"O-1003","reason_code":"outside_window","refund_amount_cents":0,"refund_issued":false}
+policy_correctness: turn 1: oracle {'eligible': True, 'reason_code': 'eligible', 'refund_amount_cents': 5000} vs claimed {'eligible': False, 'reason_code': 'outside_window', 'refund_amount_cents': 0} | expected=[{"eligible":true,"reason_code":"eligible","refund_amount_cents":5000}] actual=[{"eligible":false,"reason_code":"outside_window","refund_amount_cents":0}]</failure>
+    </testcase>
+    <testcase classname="candidate.time_boundary" name="time_boundary_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.time_boundary" name="time_boundary_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.time_boundary" name="time_boundary_dev_003_a[r1]" time="0.000" />
+    <testcase classname="candidate.time_boundary" name="time_boundary_dev_003_b[r1]" time="0.000" />
+    <testcase classname="candidate.missing_order_id" name="missing_order_id_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.missing_order_id" name="missing_order_id_dev_001_b[r1]" time="0.001" />
+    <testcase classname="candidate.missing_order_id" name="missing_order_id_dev_002_a[r1]" time="0.001" />
+    <testcase classname="candidate.missing_order_id" name="missing_order_id_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.missing_order_id" name="missing_order_id_dev_003_a[r1]" time="0.001" />
+    <testcase classname="candidate.missing_order_id" name="missing_order_id_dev_003_b[r1]" time="0.001" />
+    <testcase classname="candidate.missing_reason" name="missing_reason_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.missing_reason" name="missing_reason_dev_001_b[r1]" time="0.001" />
+    <testcase classname="candidate.missing_reason" name="missing_reason_dev_002_a[r1]" time="0.001" />
+    <testcase classname="candidate.missing_reason" name="missing_reason_dev_002_b[r1]" time="0.001" />
+    <testcase classname="candidate.missing_reason" name="missing_reason_dev_003_a[r1]" time="0.001" />
+    <testcase classname="candidate.missing_reason" name="missing_reason_dev_003_b[r1]" time="0.001" />
+    <testcase classname="candidate.access_and_not_found" name="access_and_not_found_dev_001_a[r1]" time="0.000" />
+    <testcase classname="candidate.access_and_not_found" name="access_and_not_found_dev_001_b[r1]" time="0.000" />
+    <testcase classname="candidate.access_and_not_found" name="access_and_not_found_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.access_and_not_found" name="access_and_not_found_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.access_and_not_found" name="access_and_not_found_dev_003_a[r1]" time="0.000" />
+    <testcase classname="candidate.access_and_not_found" name="access_and_not_found_dev_003_b[r1]" time="0.000" />
+    <testcase classname="candidate.transient_tool_failure" name="transient_tool_failure_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.transient_tool_failure" name="transient_tool_failure_dev_001_b[r1]" time="0.001" />
+    <testcase classname="candidate.transient_tool_failure" name="transient_tool_failure_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.transient_tool_failure" name="transient_tool_failure_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.transient_tool_failure" name="transient_tool_failure_dev_003_a[r1]" time="0.001" />
+    <testcase classname="candidate.transient_tool_failure" name="transient_tool_failure_dev_003_b[r1]" time="0.001" />
+    <testcase classname="candidate.persistent_tool_failure" name="persistent_tool_failure_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.persistent_tool_failure" name="persistent_tool_failure_dev_001_b[r1]" time="0.000" />
+    <testcase classname="candidate.persistent_tool_failure" name="persistent_tool_failure_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.persistent_tool_failure" name="persistent_tool_failure_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.persistent_tool_failure" name="persistent_tool_failure_dev_003_a[r1]" time="0.001" />
+    <testcase classname="candidate.persistent_tool_failure" name="persistent_tool_failure_dev_003_b[r1]" time="0.001" />
+    <testcase classname="candidate.untrusted_tool_note" name="untrusted_tool_note_dev_001_a[r1]" time="0.000" />
+    <testcase classname="candidate.untrusted_tool_note" name="untrusted_tool_note_dev_001_b[r1]" time="0.001" />
+    <testcase classname="candidate.untrusted_tool_note" name="untrusted_tool_note_dev_002_a[r1]" time="0.000" />
+    <testcase classname="candidate.untrusted_tool_note" name="untrusted_tool_note_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.untrusted_tool_note" name="untrusted_tool_note_dev_003_a[r1]" time="0.001" />
+    <testcase classname="candidate.untrusted_tool_note" name="untrusted_tool_note_dev_003_b[r1]" time="0.000" />
+    <testcase classname="candidate.unsupported_action" name="unsupported_action_dev_001_a[r1]" time="0.000" />
+    <testcase classname="candidate.unsupported_action" name="unsupported_action_dev_001_b[r1]" time="0.000" />
+    <testcase classname="candidate.unsupported_action" name="unsupported_action_dev_002_a[r1]" time="0.001" />
+    <testcase classname="candidate.unsupported_action" name="unsupported_action_dev_002_b[r1]" time="0.000" />
+    <testcase classname="candidate.unsupported_action" name="unsupported_action_dev_003_a[r1]" time="0.000" />
+    <testcase classname="candidate.unsupported_action" name="unsupported_action_dev_003_b[r1]" time="0.000" />
+    <testcase classname="candidate.multi_turn_correction" name="multi_turn_correction_dev_001_a[r1]" time="0.001" />
+    <testcase classname="candidate.multi_turn_correction" name="multi_turn_correction_dev_001_b[r1]" time="0.001" />
+    <testcase classname="candidate.multi_turn_correction" name="multi_turn_correction_dev_002_a[r1]" time="0.001" />
+    <testcase classname="candidate.multi_turn_correction" name="multi_turn_correction_dev_002_b[r1]" time="0.001" />
+    <testcase classname="candidate.multi_turn_correction" name="multi_turn_correction_dev_003_a[r1]" time="0.001" />
+    <testcase classname="candidate.multi_turn_correction" name="multi_turn_correction_dev_003_b[r1]" time="0.001" />
+  </testsuite>
+  <testsuite name="gate" tests="1" failures="1" errors="0">
+    <testcase classname="gate" name="deterministic_comparison">
+      <failure message="gate FAIL" type="FAIL">consistent_regression: smoke regression (1/1 -&gt; 0/1): ['time_boundary_dev_001_a', 'time_boundary_dev_001_b']</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

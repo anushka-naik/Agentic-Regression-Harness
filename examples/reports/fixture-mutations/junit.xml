@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="agentcheck-mutations">
+  <testsuite name="controlled_mutations" tests="8" failures="0">
+    <testcase classname="mutations.tool" name="cutoff_exclusive" />
+    <testcase classname="mutations.tool" name="ownership_bypass" />
+    <testcase classname="mutations.tool" name="amount_unit_error" />
+    <testcase classname="mutations.adapter" name="timeout_to_success" />
+    <testcase classname="mutations.adapter" name="claim_refund_issued" />
+    <testcase classname="mutations.adapter" name="unknown_refund_tool" />
+    <testcase classname="mutations.adapter" name="skip_eligibility" />
+    <testcase classname="mutations.adapter" name="stale_order_evidence" />
+  </testsuite>
+</testsuites>

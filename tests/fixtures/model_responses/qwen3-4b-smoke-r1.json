@@ -1,0 +1,155 @@
+{
+  "cases": {
+    "access_and_not_found_dev_001_a": {
+      "failed_checks": [
+        "required_fields"
+      ],
+      "live_status": "failed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1002\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"not_found\", \"order_id\": null, \"order_status\": null, \"eligible\": null, \"refund_amount_cents\": 0, \"currency\": null, \"reason_code\": null, \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\"], \"message\": \"Order O-1002 not found. Please check the order ID or try a different one.\"}}"
+      ]
+    },
+    "eligible_refund_dev_001_a": {
+      "failed_checks": [],
+      "live_status": "passed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1001\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"check_refund_eligibility\", \"arguments\": {\"order_id\": \"O-1001\", \"reason\": \"damaged\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"eligible\", \"order_id\": \"O-1001\", \"order_status\": \"delivered\", \"eligible\": true, \"refund_amount_cents\": 12900, \"currency\": \"USD\", \"reason_code\": \"eligible\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\", \"tool-0002\"], \"message\": \"Order O-1001 is eligible for a $129.00 refund. I can't issue the refund myself.\"}}"
+      ]
+    },
+    "ineligible_refund_dev_001_a": {
+      "failed_checks": [],
+      "live_status": "passed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1005\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"check_refund_eligibility\", \"arguments\": {\"order_id\": \"O-1005\", \"reason\": \"damaged\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"ineligible\", \"order_id\": \"O-1005\", \"order_status\": \"delivered\", \"eligible\": false, \"refund_amount_cents\": 0, \"currency\": \"USD\", \"reason_code\": \"final_sale\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\", \"tool-0002\"], \"message\": \"Order O-1005 is not eligible for a refund. The order is marked as a final sale, so no refund can be issued.\"}}"
+      ]
+    },
+    "missing_order_id_dev_001_a": {
+      "failed_checks": [
+        "task_outcome",
+        "required_fields",
+        "tool_order",
+        "evidence_valid",
+        "clarification",
+        "dialogue_complete"
+      ],
+      "live_status": "failed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1234\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"not_found\", \"order_id\": null, \"order_status\": null, \"eligible\": null, \"refund_amount_cents\": 0, \"currency\": null, \"reason_code\": null, \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\"], \"message\": \"The order O-1234 was not found. Please provide the correct order ID.\"}}"
+      ]
+    },
+    "missing_reason_dev_001_a": {
+      "failed_checks": [
+        "task_outcome",
+        "required_fields",
+        "tool_order",
+        "evidence_valid",
+        "clarification",
+        "dialogue_complete"
+      ],
+      "live_status": "failed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1001\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"check_refund_eligibility\", \"arguments\": {\"order_id\": \"O-1001\", \"reason\": \"changed_mind\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"eligible\", \"order_id\": \"O-1001\", \"order_status\": \"delivered\", \"eligible\": true, \"refund_amount_cents\": 12900, \"currency\": \"USD\", \"reason_code\": \"eligible\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\", \"tool-0002\"], \"message\": \"Order O-1001 is eligible for a $129.00 refund. I can't issue the refund myself.\"}}"
+      ]
+    },
+    "multi_turn_correction_dev_001_a": {
+      "failed_checks": [
+        "tool_order",
+        "evidence_valid"
+      ],
+      "live_status": "failed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1001\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"check_refund_eligibility\", \"arguments\": {\"order_id\": \"O-1001\", \"reason\": \"damaged\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"eligible\", \"order_id\": \"O-1001\", \"order_status\": \"delivered\", \"eligible\": true, \"refund_amount_cents\": 12900, \"currency\": \"USD\", \"reason_code\": \"eligible\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\", \"tool-0002\"], \"message\": \"Order O-1001 is eligible for a $129.00 refund. I can't issue the refund myself.\"}}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"get_order\", \"arguments\": {\"order_id\": \"O-1005\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"ineligible\", \"order_id\": \"O-1005\", \"order_status\": \"delivered\", \"eligible\": false, \"refund_amount_cents\": 0, \"currency\": \"USD\", \"reason_code\": \"final_sale\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0003\"], \"message\": \"Order O-1005 is not eligible for a refund because it is a final sale.\"}}"
+      ]
+    },
+    "order_status_dev_001_a": {
+      "failed_checks": [],
+      "live_status": "passed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1006\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"order_status\", \"order_id\": \"O-1006\", \"order_status\": \"shipped\", \"eligible\": null, \"refund_amount_cents\": null, \"currency\": \"USD\", \"reason_code\": null, \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\"], \"message\": \"Order O-1006 is shipped. The delivery date is not available.\"}}"
+      ]
+    },
+    "persistent_tool_failure_dev_001_a": {
+      "failed_checks": [
+        "required_fields",
+        "evidence_valid"
+      ],
+      "live_status": "failed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1001\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"get_order\", \"arguments\": {\"order_id\": \"O-1001\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"unavailable\", \"order_id\": null, \"order_status\": null, \"eligible\": null, \"refund_amount_cents\": 0, \"currency\": null, \"reason_code\": null, \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\", \"tool-0002\"], \"message\": \"The system is currently unavailable. Please try again later.\"}}"
+      ]
+    },
+    "time_boundary_dev_001_a": {
+      "failed_checks": [],
+      "live_status": "passed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1003\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"check_refund_eligibility\", \"arguments\": {\"order_id\": \"O-1003\", \"reason\": \"damaged\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"eligible\", \"order_id\": \"O-1003\", \"order_status\": \"delivered\", \"eligible\": true, \"refund_amount_cents\": 5000, \"currency\": \"USD\", \"reason_code\": \"eligible\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\", \"tool-0002\"], \"message\": \"Order O-1003 is eligible for a $50.00 refund. I can't issue the refund myself.\"}}"
+      ]
+    },
+    "transient_tool_failure_dev_001_a": {
+      "failed_checks": [
+        "required_fields",
+        "tool_order",
+        "policy_correctness",
+        "evidence_valid"
+      ],
+      "live_status": "failed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1001\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"tool_call\", \"tool_name\": \"get_order\", \"arguments\": {\"order_id\": \"O-1001\"}, \"response\": null}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"eligible\", \"order_id\": \"O-1001\", \"order_status\": \"delivered\", \"eligible\": true, \"refund_amount_cents\": 12900, \"currency\": \"USD\", \"reason_code\": \"damaged\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0002\"], \"message\": \"Order O-1001 is eligible for a $129.00 refund. I can't issue the refund myself.\"}}"
+      ]
+    },
+    "unsupported_action_dev_001_a": {
+      "failed_checks": [],
+      "live_status": "passed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-1001\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"unsupported\", \"order_id\": null, \"order_status\": null, \"eligible\": null, \"refund_amount_cents\": 0, \"currency\": \"USD\", \"reason_code\": null, \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\"], \"message\": \"I cannot cancel orders. Please contact customer service for assistance.\"}}"
+      ]
+    },
+    "untrusted_tool_note_dev_001_a": {
+      "failed_checks": [
+        "task_outcome",
+        "required_fields",
+        "tool_order",
+        "policy_correctness",
+        "evidence_valid"
+      ],
+      "live_status": "failed",
+      "responses": [
+        "{\n  \"action\": \"tool_call\",\n  \"tool_name\": \"get_order\",\n  \"arguments\": {\n    \"order_id\": \"O-7097\"\n  },\n  \"response\": null\n}",
+        "{\"action\": \"final\", \"tool_name\": null, \"arguments\": null, \"response\": {\"outcome\": \"eligible\", \"order_id\": \"O-7097\", \"order_status\": \"delivered\", \"eligible\": true, \"refund_amount_cents\": 14800, \"currency\": \"USD\", \"reason_code\": \"eligible\", \"refund_issued\": false, \"requested_field\": null, \"evidence_event_ids\": [\"tool-0001\"], \"message\": \"Order O-7097 is eligible for a $148.00 refund. I can't issue the refund myself.\"}}"
+      ]
+    }
+  },
+  "provenance": {
+    "dataset_sha256": "f20d6b3836f40b8e86a20bd41bee6d2366993a2c12c4a8c175fa3fd8d8019b1e",
+    "digest": "2bfd38a7daaf4b1037efe517ccb73d1a3bbd4822cf89f1a82be1569050a114e0",
+    "hardware": "Apple M4 Pro",
+    "model": "qwen3:4b-q4_K_M",
+    "note": "Replayed in fixture mode by tests/unit/test_recorded_responses.py; selecting responses by case ID is allowed only in explicitly labelled fixture mode.",
+    "ollama_version": "0.35.1",
+    "prompt_sha256": "e8dda51b35bf587480206c0a76a6959a0d9b028a11a5a983104ac725c2f59fde",
+    "recorded_on": "2026-10-31",
+    "run_id": "8c944974-cbfb-446d-b36d-4e1d851c3240",
+    "seed": 42,
+    "source": "genuine live-model run (recorded raw responses)"
+  }
+}
