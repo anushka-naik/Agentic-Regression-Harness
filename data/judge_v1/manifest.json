@@ -1,0 +1,9 @@
+{
+  "families": 30,
+  "files": {
+    "calibration.jsonl": "454c1e1400cd3af7d3eea1c2be88dfbbf394987743386b7ec198ee9411879e5c",
+    "evaluation.jsonl": "32b24bcd0933c61aedd19430895155fb16816ab863b03e40844bf557a2c4644a"
+  },
+  "name": "northstar-judge-v1",
+  "responses": 60
+}

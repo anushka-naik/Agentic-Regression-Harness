@@ -1,0 +1,14 @@
+# Advisory judge. Same model family as the actor (Qwen3), so mistakes may be
+# correlated; this is recorded in every judge report. If 8B cannot run, set
+# model to qwen3:4b-q4_K_M explicitly: a weaker, same-model fallback.
+schema_version: 1
+judge_id: local-qwen3-8b
+provider: ollama
+model: qwen3:8b-q4_K_M
+rubric_path: prompts/judge_v1.txt
+think: false
+temperature: 0
+num_ctx: 8192
+num_predict: 400
+request_timeout_seconds: 180
+same_family_as_actor: true
