@@ -1,0 +1,87 @@
+[project]
+name = "agentcheck"
+version = "0.1.0"
+description = "Local, reproducible regression evaluation for tool-using AI support agents."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE.md"]
+authors = [{ name = "Anushka V Naik" }]
+requires-python = ">=3.12,<3.13"
+keywords = ["llm", "evaluation", "agents", "regression-testing", "ollama"]
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "jinja2>=3.1",
+    "httpx>=0.27",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "sqlalchemy>=2.0",
+    "psycopg[binary]>=3.2",
+    "alembic>=1.13",
+    "typer>=0.12",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+agentcheck = "agentcheck.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "hypothesis>=6.112",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "types-PyYAML>=6.0",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentcheck"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "live: requires a running Ollama server with the configured model",
+    "db: requires a reachable PostgreSQL database (TEST_DATABASE_URL)",
+]
+addopts = "-ra"
+filterwarnings = [
+    # Starlette's TestClient deprecation notice; unrelated to this project's code.
+    "ignore:Using `httpx` with `starlette.testclient`",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["migrations/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["RUF001", "RUF012", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+# A flat catalogue of hand-written scenario templates; wrapping would hurt readability.
+"scripts/generate_dataset.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+packages = ["agentcheck"]
+mypy_path = "src"
+strict = true
+warn_unreachable = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["agentcheck.cli", "agentcheck.web.app"]
+disallow_untyped_decorators = false

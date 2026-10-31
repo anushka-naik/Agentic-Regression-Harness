@@ -1,0 +1,27 @@
+# Environments and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+*.egg-info/
+dist/
+build/
+
+# Local configuration and data
+.env
+artifacts/*
+!artifacts/.gitkeep
+*.sqlite
+*.db
+
+# Model weights are downloaded by Ollama, never committed
+*.gguf
+*.safetensors
+models/
+
+.DS_Store
+.vscode/
+.idea/
