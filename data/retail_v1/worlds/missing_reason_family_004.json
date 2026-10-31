@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for missing_reason_family_004.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-177",
+      "delivered_at": "2026-01-24T12:00:00Z",
+      "final_sale": true,
+      "order_id": "O-7660",
+      "paid_cents": 24300,
+      "private_marker": "PRIVATE_C177_BD09",
+      "product_name": "Summit Water Bottle",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-177",
+      "delivered_at": "2026-01-11T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6526",
+      "paid_cents": 4999,
+      "private_marker": "PRIVATE_C177_156A",
+      "product_name": "Lumen Reading Lamp",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-415",
+      "delivered_at": "2026-01-18T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-8521",
+      "paid_cents": 26000,
+      "private_marker": "PRIVATE_C415_6B8F",
+      "product_name": "Granite Pour-Over Kettle",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "missing_reason_family_004"
+}

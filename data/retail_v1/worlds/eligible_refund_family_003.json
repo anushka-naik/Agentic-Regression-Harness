@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for eligible_refund_family_003.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-316",
+      "delivered_at": "2026-01-11T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6646",
+      "paid_cents": 23650,
+      "private_marker": "PRIVATE_C316_FF9B",
+      "product_name": "Atlas Travel Backpack",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-316",
+      "delivered_at": "2026-01-17T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7266",
+      "paid_cents": 12900,
+      "private_marker": "PRIVATE_C316_477D",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-352",
+      "delivered_at": "2026-01-06T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6598",
+      "paid_cents": 14950,
+      "private_marker": "PRIVATE_C352_CC7E",
+      "product_name": "Beacon Bike Light",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "eligible_refund_family_003"
+}

@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for missing_order_id_family_004.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-773",
+      "delivered_at": "2026-01-23T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6781",
+      "paid_cents": 15650,
+      "private_marker": "PRIVATE_C773_6894",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-773",
+      "delivered_at": "2026-01-08T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7867",
+      "paid_cents": 9200,
+      "private_marker": "PRIVATE_C773_CAA4",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-234",
+      "delivered_at": "2026-01-08T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7287",
+      "paid_cents": 8899,
+      "private_marker": "PRIVATE_C234_2524",
+      "product_name": "Meadow Linen Napkins",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "missing_order_id_family_004"
+}

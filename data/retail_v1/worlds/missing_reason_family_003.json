@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for missing_reason_family_003.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-357",
+      "delivered_at": "2026-01-16T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-8931",
+      "paid_cents": 2500,
+      "private_marker": "PRIVATE_C357_8DA9",
+      "product_name": "Beacon Bike Light",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-357",
+      "delivered_at": "2026-01-28T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-2029",
+      "paid_cents": 9700,
+      "private_marker": "PRIVATE_C357_52BA",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-859",
+      "delivered_at": "2026-01-15T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6519",
+      "paid_cents": 19299,
+      "private_marker": "PRIVATE_C859_3947",
+      "product_name": "Aurora Wool Throw",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "missing_reason_family_003"
+}

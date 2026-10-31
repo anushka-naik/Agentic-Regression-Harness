@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for eligible_refund_family_002.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-646",
+      "delivered_at": "2026-01-26T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7973",
+      "paid_cents": 7400,
+      "private_marker": "PRIVATE_C646_C247",
+      "product_name": "Quill Notebook Trio",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-646",
+      "delivered_at": "2026-01-21T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7242",
+      "paid_cents": 18800,
+      "private_marker": "PRIVATE_C646_1CA3",
+      "product_name": "Meadow Linen Napkins",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-334",
+      "delivered_at": "2026-01-28T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-8594",
+      "paid_cents": 9299,
+      "private_marker": "PRIVATE_C334_21E3",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "eligible_refund_family_002"
+}

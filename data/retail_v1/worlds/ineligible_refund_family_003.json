@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for ineligible_refund_family_003.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-256",
+      "delivered_at": null,
+      "final_sale": false,
+      "order_id": "O-5063",
+      "paid_cents": 20700,
+      "private_marker": "PRIVATE_C256_A5F7",
+      "product_name": "Aurora Wool Throw",
+      "public_note": "",
+      "status": "shipped"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-256",
+      "delivered_at": "2026-01-14T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-2159",
+      "paid_cents": 4050,
+      "private_marker": "PRIVATE_C256_7A99",
+      "product_name": "Orbit Wireless Mouse",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-159",
+      "delivered_at": "2026-01-22T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6647",
+      "paid_cents": 25400,
+      "private_marker": "PRIVATE_C159_F8D3",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "ineligible_refund_family_003"
+}

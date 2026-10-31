@@ -1,0 +1,102 @@
+{
+  "description": "Seed fixture rows O-1001..O-1008 for Northstar Demo Store.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-001",
+      "delivered_at": "2026-01-15T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-1001",
+      "paid_cents": 12900,
+      "private_marker": "PRIVATE_C001_A1",
+      "product_name": "Northstar Desk Lamp",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-002",
+      "delivered_at": "2026-01-20T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-1002",
+      "paid_cents": 8700,
+      "private_marker": "PRIVATE_C002_7F31",
+      "product_name": "Northstar Field Jacket",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-001",
+      "delivered_at": "2026-01-01T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-1003",
+      "paid_cents": 5000,
+      "private_marker": "PRIVATE_C001_A3",
+      "product_name": "Northstar Canvas Tote",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-001",
+      "delivered_at": "2026-01-01T11:59:59Z",
+      "final_sale": false,
+      "order_id": "O-1004",
+      "paid_cents": 5000,
+      "private_marker": "PRIVATE_C001_A4",
+      "product_name": "Northstar Canvas Tote",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-001",
+      "delivered_at": "2026-01-20T12:00:00Z",
+      "final_sale": true,
+      "order_id": "O-1005",
+      "paid_cents": 2200,
+      "private_marker": "PRIVATE_C001_A5",
+      "product_name": "Northstar Clearance Scarf",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-001",
+      "delivered_at": null,
+      "final_sale": false,
+      "order_id": "O-1006",
+      "paid_cents": 6400,
+      "private_marker": "PRIVATE_C001_A6",
+      "product_name": "Northstar Hiking Boots",
+      "public_note": "",
+      "status": "shipped"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-001",
+      "delivered_at": "2026-01-10T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-1007",
+      "paid_cents": 7300,
+      "private_marker": "PRIVATE_C001_A7",
+      "product_name": "Northstar Rain Shell",
+      "public_note": "",
+      "status": "refunded"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-001",
+      "delivered_at": null,
+      "final_sale": false,
+      "order_id": "O-1008",
+      "paid_cents": 4500,
+      "private_marker": "PRIVATE_C001_A8",
+      "product_name": "Northstar Wool Beanie",
+      "public_note": "",
+      "status": "cancelled"
+    }
+  ],
+  "world_id": "seed_store"
+}

@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for ineligible_refund_family_004.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-935",
+      "delivered_at": null,
+      "final_sale": false,
+      "order_id": "O-2566",
+      "paid_cents": 20600,
+      "private_marker": "PRIVATE_C935_F358",
+      "product_name": "Lumen Reading Lamp",
+      "public_note": "",
+      "status": "cancelled"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-935",
+      "delivered_at": "2026-01-12T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3352",
+      "paid_cents": 7999,
+      "private_marker": "PRIVATE_C935_66FD",
+      "product_name": "Atlas Travel Backpack",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-830",
+      "delivered_at": "2026-01-20T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-5268",
+      "paid_cents": 18350,
+      "private_marker": "PRIVATE_C830_E729",
+      "product_name": "Quill Notebook Trio",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "ineligible_refund_family_004"
+}

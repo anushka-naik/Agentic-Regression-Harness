@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for missing_order_id_family_005.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-109",
+      "delivered_at": "2026-01-28T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-5754",
+      "paid_cents": 17100,
+      "private_marker": "PRIVATE_C109_6D22",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-109",
+      "delivered_at": "2026-01-13T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-4172",
+      "paid_cents": 4550,
+      "private_marker": "PRIVATE_C109_7D12",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-478",
+      "delivered_at": "2026-01-20T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3292",
+      "paid_cents": 12450,
+      "private_marker": "PRIVATE_C478_9948",
+      "product_name": "Aurora Wool Throw",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "missing_order_id_family_005"
+}

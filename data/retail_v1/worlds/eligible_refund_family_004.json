@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for eligible_refund_family_004.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-470",
+      "delivered_at": "2026-01-19T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3796",
+      "paid_cents": 4799,
+      "private_marker": "PRIVATE_C470_181F",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-470",
+      "delivered_at": "2026-01-26T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3252",
+      "paid_cents": 17200,
+      "private_marker": "PRIVATE_C470_2086",
+      "product_name": "Beacon Bike Light",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-494",
+      "delivered_at": "2026-01-17T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6881",
+      "paid_cents": 13150,
+      "private_marker": "PRIVATE_C494_3AA6",
+      "product_name": "Aurora Wool Throw",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "eligible_refund_family_004"
+}

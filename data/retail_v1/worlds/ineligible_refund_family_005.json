@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for ineligible_refund_family_005.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-223",
+      "delivered_at": "2025-12-17T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-4030",
+      "paid_cents": 6900,
+      "private_marker": "PRIVATE_C223_0AC5",
+      "product_name": "Meadow Linen Napkins",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-223",
+      "delivered_at": "2026-01-11T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6537",
+      "paid_cents": 7000,
+      "private_marker": "PRIVATE_C223_2459",
+      "product_name": "Aurora Wool Throw",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-824",
+      "delivered_at": "2026-01-09T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-2482",
+      "paid_cents": 7000,
+      "private_marker": "PRIVATE_C824_A92D",
+      "product_name": "Summit Water Bottle",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "ineligible_refund_family_005"
+}

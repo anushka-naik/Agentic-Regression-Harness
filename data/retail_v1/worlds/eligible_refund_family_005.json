@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for eligible_refund_family_005.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-798",
+      "delivered_at": "2026-01-02T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6398",
+      "paid_cents": 20450,
+      "private_marker": "PRIVATE_C798_391D",
+      "product_name": "Meadow Linen Napkins",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-798",
+      "delivered_at": "2026-01-20T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-5561",
+      "paid_cents": 5299,
+      "private_marker": "PRIVATE_C798_86DA",
+      "product_name": "Aurora Wool Throw",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-612",
+      "delivered_at": "2026-01-24T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6158",
+      "paid_cents": 24500,
+      "private_marker": "PRIVATE_C612_65D7",
+      "product_name": "Orbit Wireless Mouse",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "eligible_refund_family_005"
+}

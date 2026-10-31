@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for missing_order_id_family_003.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-151",
+      "delivered_at": "2026-01-25T12:00:00Z",
+      "final_sale": true,
+      "order_id": "O-6785",
+      "paid_cents": 13400,
+      "private_marker": "PRIVATE_C151_2904",
+      "product_name": "Summit Water Bottle",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-151",
+      "delivered_at": "2026-01-24T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-2561",
+      "paid_cents": 16400,
+      "private_marker": "PRIVATE_C151_CEBB",
+      "product_name": "Pine Cutting Board",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-222",
+      "delivered_at": "2026-01-11T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-4016",
+      "paid_cents": 16000,
+      "private_marker": "PRIVATE_C222_D6A4",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "missing_order_id_family_003"
+}

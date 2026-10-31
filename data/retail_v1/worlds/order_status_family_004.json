@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for order_status_family_004.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-967",
+      "delivered_at": "2026-01-17T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-4817",
+      "paid_cents": 16650,
+      "private_marker": "PRIVATE_C967_EB39",
+      "product_name": "Summit Water Bottle",
+      "public_note": "",
+      "status": "refunded"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-967",
+      "delivered_at": "2026-01-12T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3022",
+      "paid_cents": 24899,
+      "private_marker": "PRIVATE_C967_961B",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-949",
+      "delivered_at": "2026-01-09T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7066",
+      "paid_cents": 23850,
+      "private_marker": "PRIVATE_C949_239C",
+      "product_name": "Atlas Travel Backpack",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "order_status_family_004"
+}

@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for time_boundary_family_003.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-172",
+      "delivered_at": "2026-01-01T12:00:01Z",
+      "final_sale": false,
+      "order_id": "O-6211",
+      "paid_cents": 7250,
+      "private_marker": "PRIVATE_C172_6DB0",
+      "product_name": "Tidal Yoga Mat",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-172",
+      "delivered_at": "2026-01-12T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3083",
+      "paid_cents": 19799,
+      "private_marker": "PRIVATE_C172_F229",
+      "product_name": "Pine Cutting Board",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-926",
+      "delivered_at": "2026-01-16T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3559",
+      "paid_cents": 3600,
+      "private_marker": "PRIVATE_C926_B566",
+      "product_name": "Beacon Bike Light",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "time_boundary_family_003"
+}

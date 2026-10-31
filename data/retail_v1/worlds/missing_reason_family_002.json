@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for missing_reason_family_002.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-779",
+      "delivered_at": "2026-01-22T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-2848",
+      "paid_cents": 25200,
+      "private_marker": "PRIVATE_C779_3B19",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-779",
+      "delivered_at": "2026-01-26T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-8081",
+      "paid_cents": 15300,
+      "private_marker": "PRIVATE_C779_9042",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-719",
+      "delivered_at": "2026-01-23T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7878",
+      "paid_cents": 9900,
+      "private_marker": "PRIVATE_C719_FA20",
+      "product_name": "Nimbus Desk Fan",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "missing_reason_family_002"
+}

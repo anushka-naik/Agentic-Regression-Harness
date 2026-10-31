@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for order_status_family_003.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-325",
+      "delivered_at": null,
+      "final_sale": false,
+      "order_id": "O-5679",
+      "paid_cents": 16250,
+      "private_marker": "PRIVATE_C325_51BE",
+      "product_name": "Aurora Wool Throw",
+      "public_note": "",
+      "status": "cancelled"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-325",
+      "delivered_at": "2026-01-07T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-5462",
+      "paid_cents": 9950,
+      "private_marker": "PRIVATE_C325_6E3D",
+      "product_name": "Lumen Reading Lamp",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-881",
+      "delivered_at": "2026-01-19T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-2837",
+      "paid_cents": 3599,
+      "private_marker": "PRIVATE_C881_B7CC",
+      "product_name": "Cedar Bookshelf Speaker",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "order_status_family_003"
+}

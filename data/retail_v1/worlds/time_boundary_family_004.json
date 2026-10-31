@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for time_boundary_family_004.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-533",
+      "delivered_at": "2026-01-01T17:30:00+05:30",
+      "final_sale": false,
+      "order_id": "O-5367",
+      "paid_cents": 13100,
+      "private_marker": "PRIVATE_C533_1F08",
+      "product_name": "Cedar Bookshelf Speaker",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-533",
+      "delivered_at": "2026-01-17T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7965",
+      "paid_cents": 9800,
+      "private_marker": "PRIVATE_C533_6218",
+      "product_name": "Pine Cutting Board",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-294",
+      "delivered_at": "2026-01-12T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-5675",
+      "paid_cents": 4799,
+      "private_marker": "PRIVATE_C294_8E9D",
+      "product_name": "Trail Running Socks",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "time_boundary_family_004"
+}

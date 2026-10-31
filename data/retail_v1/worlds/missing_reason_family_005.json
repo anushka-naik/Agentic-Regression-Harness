@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for missing_reason_family_005.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-355",
+      "delivered_at": "2026-01-20T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-7463",
+      "paid_cents": 3850,
+      "private_marker": "PRIVATE_C355_4F21",
+      "product_name": "Beacon Bike Light",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-355",
+      "delivered_at": "2026-01-22T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3331",
+      "paid_cents": 21600,
+      "private_marker": "PRIVATE_C355_0CB0",
+      "product_name": "Beacon Bike Light",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-283",
+      "delivered_at": "2026-01-06T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-4721",
+      "paid_cents": 21299,
+      "private_marker": "PRIVATE_C283_889A",
+      "product_name": "Pine Cutting Board",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "missing_reason_family_005"
+}

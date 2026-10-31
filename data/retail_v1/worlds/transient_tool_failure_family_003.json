@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for transient_tool_failure_family_003.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-780",
+      "delivered_at": "2026-01-25T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-5105",
+      "paid_cents": 18500,
+      "private_marker": "PRIVATE_C780_CFE9",
+      "product_name": "Orbit Wireless Mouse",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-780",
+      "delivered_at": "2026-01-12T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-8829",
+      "paid_cents": 1250,
+      "private_marker": "PRIVATE_C780_6B9D",
+      "product_name": "Orbit Wireless Mouse",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-540",
+      "delivered_at": "2026-01-11T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-6969",
+      "paid_cents": 17950,
+      "private_marker": "PRIVATE_C540_E231",
+      "product_name": "Quill Notebook Trio",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "transient_tool_failure_family_003"
+}

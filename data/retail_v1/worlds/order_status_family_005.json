@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for order_status_family_005.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-146",
+      "delivered_at": null,
+      "final_sale": false,
+      "order_id": "O-7417",
+      "paid_cents": 7050,
+      "private_marker": "PRIVATE_C146_7730",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "shipped"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-146",
+      "delivered_at": "2026-01-26T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-5113",
+      "paid_cents": 8399,
+      "private_marker": "PRIVATE_C146_5347",
+      "product_name": "Granite Pour-Over Kettle",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-479",
+      "delivered_at": "2026-01-18T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3716",
+      "paid_cents": 18350,
+      "private_marker": "PRIVATE_C479_579F",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "order_status_family_005"
+}

@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for time_boundary_family_005.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-573",
+      "delivered_at": "2026-02-13T01:29:59-08:00",
+      "final_sale": false,
+      "order_id": "O-4046",
+      "paid_cents": 23500,
+      "private_marker": "PRIVATE_C573_3221",
+      "product_name": "Quill Notebook Trio",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-573",
+      "delivered_at": "2026-03-12T09:30:00Z",
+      "final_sale": false,
+      "order_id": "O-7342",
+      "paid_cents": 15000,
+      "private_marker": "PRIVATE_C573_7906",
+      "product_name": "Harbor Ceramic Mug Set",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-270",
+      "delivered_at": "2026-02-28T09:30:00Z",
+      "final_sale": false,
+      "order_id": "O-5978",
+      "paid_cents": 13500,
+      "private_marker": "PRIVATE_C270_1E05",
+      "product_name": "Drift Bath Towel Set",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "time_boundary_family_005"
+}

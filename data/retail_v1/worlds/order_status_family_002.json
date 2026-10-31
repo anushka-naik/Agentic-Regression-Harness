@@ -1,0 +1,42 @@
+{
+  "description": "Generated fixture world for order_status_family_002.",
+  "orders": [
+    {
+      "currency": "USD",
+      "customer_id": "C-754",
+      "delivered_at": "2026-01-27T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-2912",
+      "paid_cents": 1850,
+      "private_marker": "PRIVATE_C754_7248",
+      "product_name": "Pine Cutting Board",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-754",
+      "delivered_at": "2026-01-25T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-8033",
+      "paid_cents": 3800,
+      "private_marker": "PRIVATE_C754_1045",
+      "product_name": "Beacon Bike Light",
+      "public_note": "",
+      "status": "delivered"
+    },
+    {
+      "currency": "USD",
+      "customer_id": "C-130",
+      "delivered_at": "2026-01-27T12:00:00Z",
+      "final_sale": false,
+      "order_id": "O-3791",
+      "paid_cents": 7100,
+      "private_marker": "PRIVATE_C130_D6CB",
+      "product_name": "Atlas Travel Backpack",
+      "public_note": "",
+      "status": "delivered"
+    }
+  ],
+  "world_id": "order_status_family_002"
+}
