@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" width="1100" height="660" role="img" aria-labelledby="t d">
+  <title id="t">AgentCheck architecture</title>
+  <desc id="d">A matched runner executes baseline and candidate agents on identical frozen cases. The actor side sees only user messages and tool observations; expectations and the independent oracle live on the grader side. Traces cross the boundary in one direction only. Deterministic checks feed the release gate; an LLM judge is advisory.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#777"/>
+    </marker>
+    <style>
+      text { font-family: Georgia, "Times New Roman", serif; fill: #1b1b1b; }
+      .h { font-size: 14px; font-weight: bold; }
+      .b { font-size: 12px; fill: #3a3a3a; }
+      .m { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 10.5px; fill: #444; }
+      .n { font-size: 11px; font-weight: bold; fill: #fff; }
+      .cap { font-size: 13px; fill: #333; }
+      .reg { font-size: 11px; letter-spacing: 1.2px; fill: #555; }
+      .box { fill: #fff; stroke: #222; stroke-width: 1.2; }
+      .ln { stroke: #222; stroke-width: 1.3; fill: none; }
+      .lg { stroke: #777; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
+      .lbl { font-size: 10.5px; font-style: italic; fill: #555; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="660" fill="#ffffff"/>
+
+  <!-- Regions -->
+  <rect x="250" y="62" width="440" height="348" rx="6" fill="#f6f5f1" stroke="#9a978e" stroke-dasharray="5 4"/>
+  <text x="264" y="82" class="reg">ACTOR SIDE · sees user messages and tool observations only</text>
+  <rect x="730" y="62" width="350" height="348" rx="6" fill="#f2f4f7" stroke="#8e96a3" stroke-dasharray="5 4"/>
+  <text x="744" y="82" class="reg">GRADER SIDE · never visible to the actor</text>
+
+  <!-- Information boundary -->
+  <line x1="710" y1="56" x2="710" y2="420" stroke="#b3261e" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <text x="704" y="345" class="lbl" transform="rotate(-90 704 345)" text-anchor="middle" style="fill:#b3261e">information boundary</text>
+
+  <!-- Left column -->
+  <g>
+    <rect x="20" y="92" width="200" height="78" class="box"/>
+    <circle cx="36" cy="108" r="9" fill="#222"/><text x="36" y="112" class="n" text-anchor="middle">1</text>
+    <text x="52" y="113" class="h">Versioned suite</text>
+    <text x="32" y="134" class="b">120 cases · 60 families · 46 worlds</text>
+    <text x="32" y="153" class="m">manifest content SHA-256</text>
+  </g>
+  <g>
+    <rect x="20" y="198" width="200" height="74" class="box"/>
+    <circle cx="36" cy="214" r="9" fill="#222"/><text x="36" y="218" class="n" text-anchor="middle">2</text>
+    <text x="52" y="219" class="h">Agent configs</text>
+    <text x="32" y="240" class="b">baseline vs candidate</text>
+    <text x="32" y="258" class="b">prompt, model, tools, decoding</text>
+  </g>
+  <g>
+    <rect x="20" y="302" width="200" height="98" class="box" style="stroke-width:1.8"/>
+    <circle cx="36" cy="318" r="9" fill="#222"/><text x="36" y="322" class="n" text-anchor="middle">3</text>
+    <text x="52" y="323" class="h">Matched runner</text>
+    <text x="32" y="344" class="b">identical cases and seeds</text>
+    <text x="32" y="362" class="b">(42, 43, 44); alternating order;</text>
+    <text x="32" y="380" class="b">fresh world + fault state per trial</text>
+  </g>
+  <path d="M120,170 V198" class="ln" marker-end="url(#a)"/>
+  <path d="M120,272 V302" class="ln" marker-end="url(#a)"/>
+
+  <!-- Actor side -->
+  <g>
+    <rect x="270" y="96" width="180" height="62" class="box"/>
+    <text x="282" y="117" class="h">Scripted user</text>
+    <text x="282" y="136" class="b">next message only if the</text>
+    <text x="282" y="151" class="b">reply fits (predicate hidden)</text>
+  </g>
+  <g>
+    <rect x="270" y="188" width="180" height="88" class="box" style="stroke-width:1.8"/>
+    <circle cx="286" cy="204" r="9" fill="#222"/><text x="286" y="208" class="n" text-anchor="middle">4</text>
+    <text x="302" y="209" class="h">Action loop</text>
+    <text x="282" y="229" class="b">one JSON action per request</text>
+    <text x="282" y="246" class="b">≤1 schema repair per turn</text>
+    <text x="282" y="263" class="b">step, context and time budgets</text>
+  </g>
+  <g>
+    <rect x="490" y="188" width="180" height="88" class="box"/>
+    <text x="502" y="209" class="h">Model client</text>
+    <text x="502" y="229" class="b">Ollama · Qwen3-4B Q4_K_M</text>
+    <text x="502" y="246" class="b">think=false, temp 0, seed</text>
+    <text x="502" y="263" class="b">or scripted reference policy</text>
+  </g>
+  <g>
+    <rect x="270" y="306" width="180" height="88" class="box"/>
+    <circle cx="286" cy="322" r="9" fill="#222"/><text x="286" y="326" class="n" text-anchor="middle">5</text>
+    <text x="302" y="327" class="h">Tool dispatcher</text>
+    <text x="282" y="347" class="b">allowlist · argument schema</text>
+    <text x="282" y="364" class="b">trusted identity injected</text>
+    <text x="282" y="381" class="b">deterministic fault plan</text>
+  </g>
+  <g>
+    <rect x="490" y="306" width="180" height="88" class="box"/>
+    <text x="502" y="327" class="h">Retail tools</text>
+    <text x="502" y="345" class="m">get_order</text>
+    <text x="502" y="360" class="m">check_refund_eligibility</text>
+    <text x="502" y="381" class="b">under test · 8 mutations</text>
+  </g>
+  <path d="M220,340 H245 V232 H270" class="ln" marker-end="url(#a)"/>
+  <path d="M360,158 V188" class="ln" marker-end="url(#a)"/>
+  <path d="M450,220 H490" class="ln" marker-end="url(#a)"/>
+  <path d="M490,248 H450" class="ln" marker-end="url(#a)"/>
+  <text x="452" y="212" class="lbl" style="font-size:10px">prompt</text>
+  <text x="456" y="262" class="lbl">action</text>
+  <path d="M360,276 V306" class="ln" marker-end="url(#a)"/>
+  <path d="M450,340 H490" class="ln" marker-end="url(#a)"/>
+  <path d="M490,364 H450" class="ln" marker-end="url(#a)"/>
+
+  <!-- Grader side -->
+  <g>
+    <rect x="750" y="96" width="310" height="62" class="box"/>
+    <text x="762" y="117" class="h">Evaluation case</text>
+    <text x="762" y="136" class="b">expected turns, any_of branches,</text>
+    <text x="762" y="151" class="b">fields, tool order, evidence rules</text>
+  </g>
+  <g>
+    <rect x="915" y="188" width="145" height="88" class="box"/>
+    <circle cx="931" cy="204" r="9" fill="#222"/><text x="931" y="208" class="n" text-anchor="middle">6</text>
+    <text x="947" y="209" class="h">Oracle</text>
+    <text x="927" y="229" class="b">independent policy</text>
+    <text x="927" y="246" class="b">implementation;</text>
+    <text x="927" y="263" class="b">shares no helpers</text>
+  </g>
+  <g>
+    <rect x="750" y="188" width="145" height="88" class="box"/>
+    <text x="762" y="209" class="h">Trace</text>
+    <text x="762" y="229" class="b">every message, action,</text>
+    <text x="762" y="246" class="b">tool call and result;</text>
+    <text x="762" y="263" class="b">host event IDs</text>
+  </g>
+  <g>
+    <rect x="750" y="306" width="310" height="88" class="box" style="stroke-width:1.8"/>
+    <circle cx="766" cy="322" r="9" fill="#222"/><text x="766" y="326" class="n" text-anchor="middle">7</text>
+    <text x="782" y="327" class="h">16 deterministic checks</text>
+    <text x="762" y="347" class="b">outcome · fields · evidence validity · ownership</text>
+    <text x="762" y="364" class="b">retries · allowlist · fabricated actions · leakage</text>
+    <text x="762" y="381" class="b">pass / fail / not_applicable, with event IDs</text>
+  </g>
+  <!-- trace crosses boundary in one direction only -->
+  <path d="M670,232 H750" class="ln" marker-end="url(#a)" style="stroke:#b3261e;stroke-width:1.8"/>
+  <text x="676" y="224" class="lbl" style="fill:#b3261e">events</text>
+  <text x="676" y="250" class="lbl" style="fill:#b3261e">one-way</text>
+  <path d="M905,158 V306" class="ln" marker-end="url(#a)"/>
+  <path d="M822,276 V306" class="ln" marker-end="url(#a)"/>
+  <path d="M987,276 V306" class="ln" marker-end="url(#a)"/>
+
+  <!-- Bottom row -->
+  <g>
+    <rect x="20" y="456" width="200" height="74" class="box" style="stroke-dasharray:4 3"/>
+    <text x="32" y="477" class="h">Advisory judge</text>
+    <text x="32" y="497" class="b">Qwen3-8B reviews message text</text>
+    <text x="32" y="514" class="b">never changes the gate</text>
+  </g>
+  <g>
+    <rect x="270" y="456" width="180" height="74" class="box"/>
+    <text x="282" y="477" class="h">PostgreSQL 16</text>
+    <text x="282" y="497" class="b">runs · attempts · events</text>
+    <text x="282" y="514" class="b">checks · comparisons</text>
+  </g>
+  <g>
+    <rect x="490" y="456" width="180" height="74" class="box" style="stroke-width:1.8"/>
+    <circle cx="506" cy="472" r="9" fill="#222"/><text x="506" y="476" class="n" text-anchor="middle">8</text>
+    <text x="522" y="477" class="h">Release gate</text>
+    <text x="502" y="497" class="m">PASS 0 · FAIL 1</text>
+    <text x="502" y="514" class="m">INCONCLUSIVE 2</text>
+  </g>
+  <g>
+    <rect x="750" y="456" width="145" height="74" class="box"/>
+    <text x="762" y="477" class="h">Reports</text>
+    <text x="762" y="497" class="b">report.md, junit.xml,</text>
+    <text x="762" y="514" class="b">results.json, traces</text>
+  </g>
+  <g>
+    <rect x="915" y="456" width="145" height="74" class="box"/>
+    <text x="927" y="477" class="h">Dashboard</text>
+    <text x="927" y="497" class="b">read-only, localhost,</text>
+    <text x="927" y="514" class="b">escaped output</text>
+  </g>
+  <path d="M800,394 C780,430 640,430 600,456" class="ln" marker-end="url(#a)"/>
+  <path d="M670,493 H750" class="ln" marker-end="url(#a)"/>
+  <path d="M360,394 V456" class="ln" marker-end="url(#a)"/>
+  <text x="366" y="430" class="lbl">persisted as they happen</text>
+  <path d="M360,530 V560 H987 V530" class="ln" marker-end="url(#a)"/>
+  <path d="M270,493 H220" class="lg" marker-end="url(#ag)"/>
+  <text x="226" y="486" class="lbl">traces</text>
+
+  <!-- Caption -->
+  <text x="20" y="602" class="cap"><tspan font-weight="bold">Figure 1.</tspan> AgentCheck runs a baseline and a candidate agent on identical frozen scenarios and seeds. The actor (left of the</text>
+  <text x="20" y="622" class="cap">boundary) never receives expectations or labels; only traces cross, in one direction. Independent deterministic checks decide</text>
+  <text x="20" y="642" class="cap">the gate. Dashed components are advisory or read-only.</text>
+</svg>
